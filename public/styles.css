@@ -1,0 +1,133 @@
+/* Simplified Clean Design */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #20232a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 20px 0;
+  color: #61dafb;
+  font-weight: bold;
+  text-align: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50vw;
+}
+
+#editor-container {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  background-color: #282c34;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+#editor-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#editor {
+  flex-grow: 1;
+  min-height: 300px;
+  padding: 16px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #20232a;
+  /* border: 2px solid white; */
+
+  border-radius: 8px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 10px var("editor-background");
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#editor:focus {
+  outline: none;
+  /* border-color: white; */
+}
+
+#status {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #61dafb;
+  text-align: center;
+  animation: text-glow 1s infinite alternate;
+}
+#container-in-editor-container-under-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cursor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #61dafb;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px #61dafb;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 8px 2px var(--color);
+  }
+  to {
+    box-shadow: 0 0 15px 5px var(--color);
+  }
+}
+@keyframes text-glow {
+  from {
+    text-shadow: 0px 0px 10px var(--color);
+  }
+  to {
+    text-shadow: 0px 0px 10px var(--color);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  #editor {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  #status {
+    font-size: 12px;
+  }
+}
+
+.user {
+  animation: text-glow 1.5s infinite alternate;
+}
